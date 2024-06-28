@@ -1,0 +1,1 @@
+{"_invocation_id": "70f29a5c-ea1e-48e8-b62b-10c0c6d2e32c", "linked": {"0": {"name": "model.my_project_dbt.ingestion1", "type": "model", "succ": [1]}, "1": {"name": "model.my_project_dbt.feminino", "type": "model"}}}
