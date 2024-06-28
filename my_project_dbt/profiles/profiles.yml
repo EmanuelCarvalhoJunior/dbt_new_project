@@ -4,8 +4,8 @@ my_project_dbt:  # Nome do projeto dbt
     dev:       # Configuração do alvo 'dev'
       type: postgres
       host: 172.17.0.2    # Endereço do host do PostgreSQL
-      user: myuser       # Nome do usuário do PostgreSQL
-      password: mysecretpassword  # Senha do usuário
+      user: postgres       # Nome do usuário do PostgreSQL
+      password: mypassword  # Senha do usuário
       port: 5432         # Porta em que o PostgreSQL está rodando
       dbname: postgres       # Nome do banco de dados
       schema: public     # Esquema do banco de dados a ser utilizado
