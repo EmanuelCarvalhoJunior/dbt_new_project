@@ -1,4 +1,5 @@
-run.sh
+
 my_project_dbt/target/
 my_project_dbt/dbt_packages/
 my_project_dbt/logs/
+my_project_dbt/run.sh
