@@ -1,0 +1,1115 @@
+2024-06-28 18:56:25 — INFO — Running with edr=0.15.1
+2024-06-28 18:56:25 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 18:56:25 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 18:56:29 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'deps', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project']' is 3523
+2024-06-28 18:56:29 — INFO — Running with dbt=1.7.0
+2024-06-28 18:56:29 — INFO — Updating lock file in file path: /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project/package-lock.yml
+2024-06-28 18:56:29 — INFO — Installing dbt-labs/dbt_utils
+2024-06-28 18:56:29 — INFO — Installed from version 0.8.6
+2024-06-28 18:56:29 — INFO — Updated version available: 1.2.0
+2024-06-28 18:56:29 — INFO — Installing elementary-data/elementary
+2024-06-28 18:56:29 — INFO — Installed from version 0.15.1
+2024-06-28 18:56:29 — INFO — Updated version available: 0.15.2
+2024-06-28 18:56:29 — INFO — 
+2024-06-28 18:56:29 — INFO — Updates available for packages: ['dbt-labs/dbt_utils', 'elementary-data/elementary']                 
+Update your versions in packages.yml, then run dbt deps
+2024-06-28 18:56:29 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 18:56:32 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'[0m
+2024-06-28 18:56:32 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 18:56:35 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-06-28 18:56:35 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 18:56:37 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 18:56:37 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 18:56:40 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-06-28 18:57:12 — INFO — Running with edr=0.15.1
+2024-06-28 18:57:12 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 18:57:15 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'[0m
+2024-06-28 18:57:15 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 18:57:18 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-06-28 18:57:18 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 19:00:11 — INFO — Running with edr=0.15.1
+2024-06-28 19:00:49 — INFO — Running with edr=0.15.1
+2024-06-28 19:00:49 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:00:52 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev[0m
+2024-06-28 19:00:52 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 19:00:55 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+2024-06-28 19:00:55 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:00:58 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 19:00:58 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:01:00 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+2024-06-28 19:01:25 — INFO — Running with edr=0.15.1
+2024-06-28 19:01:25 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:01:28 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev[0m
+2024-06-28 19:01:28 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 19:01:31 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+2024-06-28 19:01:31 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:01:33 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 19:01:33 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 19:01:36 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'default'. The valid target names for this profile are:
+   - elementary_dev
+2024-06-28 19:03:24 — INFO — Running with edr=0.15.1
+2024-06-28 19:03:24 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:03:31 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1837
+2024-06-28 19:03:31 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:03:35 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1496
+2024-06-28 19:03:35 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:03:38 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1494
+2024-06-28 19:03:38 — INFO — Elementary's database and schema: '"postgres.pulic_elementary"'
+2024-06-28 19:03:38 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+[31;20m2024-06-28 19:03:41 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error while running operation: Database Error
+  relation "pulic_elementary.elementary_test_results" does not exist
+  LINE 7:         select * from "postgres"."pulic_elementary"."element...
+                                ^
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error while running operation: Database Error
+  relation "pulic_elementary.elementary_test_results" does not exist
+  LINE 7:         select * from "postgres"."pulic_elementary"."element...
+                                ^
+2024-06-28 19:04:47 — INFO — Running with edr=0.15.1
+2024-06-28 19:04:47 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:04:54 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 3857
+2024-06-28 19:04:54 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:04:58 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1496
+2024-06-28 19:04:58 — INFO — edr (0.15.1) and Elementary's dbt package (0.15.2) are compatible.
+2024-06-28 19:04:58 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:01 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1496
+2024-06-28 19:05:01 — INFO — Elementary's database and schema: '"postgres.public_elementary"'
+2024-06-28 19:05:01 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:04 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 63012
+2024-06-28 19:05:04 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:07 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:05:07 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:10 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 3006
+2024-06-28 19:05:10 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:14 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_sources", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:05:14 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:17 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_exposures", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:05:17 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:20 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:05:20 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:23 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:05:23 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:26 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1634
+2024-06-28 19:05:26 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:29 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2058
+2024-06-28 19:05:29 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:32 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 8048
+2024-06-28 19:05:32 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:05:36 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1896
+2024-06-28 19:07:35 — INFO — Running with edr=0.15.1
+2024-06-28 19:07:35 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:38 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 3510
+2024-06-28 19:07:38 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:42 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1496
+2024-06-28 19:07:42 — INFO — edr (0.15.1) and Elementary's dbt package (0.15.2) are compatible.
+2024-06-28 19:07:42 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:45 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1496
+2024-06-28 19:07:45 — INFO — Elementary's database and schema: '"postgres.public_elementary"'
+2024-06-28 19:07:45 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:48 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 63012
+2024-06-28 19:07:48 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:51 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:07:51 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:55 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 3006
+2024-06-28 19:07:55 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:07:58 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_sources", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:07:58 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:01 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_exposures", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:08:01 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:04 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:08:04 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:08 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1440
+2024-06-28 19:08:08 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:11 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1634
+2024-06-28 19:08:11 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:14 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2058
+2024-06-28 19:08:14 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:17 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 8048
+2024-06-28 19:08:17 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 19:08:20 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-flask/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1896
+2024-06-28 21:40:16 — INFO — Running with edr=0.15.1
+2024-06-28 21:40:16 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:40:16 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 21:41:04 — INFO — Running with edr=0.15.1
+2024-06-28 21:41:24 — INFO — Running with edr=0.15.1
+2024-06-28 21:41:24 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:41:24 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:42:06 — INFO — Running with edr=0.15.1
+2024-06-28 21:42:06 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:42:06 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 21:42:57 — INFO — Running with edr=0.15.1
+2024-06-28 21:42:57 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:42:57 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 21:44:41 — INFO — Running with edr=0.15.1
+2024-06-28 21:44:41 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:44:41 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:49:17 — INFO — Running with edr=0.14.1
+2024-06-28 21:49:56 — INFO — Running with edr=0.14.1
+2024-06-28 21:50:10 — INFO — Running with edr=0.14.1
+2024-06-28 21:50:10 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:50:10 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:52:57 — INFO — Running with edr=0.14.1
+2024-06-28 21:52:57 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:52:57 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:53:21 — INFO — Running with edr=0.14.1
+2024-06-28 21:53:36 — INFO — Running with edr=0.14.1
+2024-06-28 21:53:36 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:53:36 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:56:06 — INFO — Running with edr=0.14.1
+2024-06-28 21:56:06 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:56:06 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:56:39 — INFO — Running with edr=0.15.1
+2024-06-28 21:56:39 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:56:39 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 21:56:56 — INFO — Running with edr=0.15.1
+2024-06-28 21:56:56 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:56:56 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 21:59:18 — INFO — Running with edr=0.15.1
+2024-06-28 21:59:18 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 21:59:18 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:01:04 — INFO — Running with edr=0.15.1
+2024-06-28 22:01:04 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:01:07 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:01:07 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:01:09 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:01:09 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:01:11 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:01:11 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:01:15 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:01:36 — INFO — Running with edr=0.15.1
+2024-06-28 22:01:36 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 22:01:38 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:01:38 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 22:01:40 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:01:40 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 22:01:42 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:01:42 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+[31;20m2024-06-28 22:01:44 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:02:10 — INFO — Running with edr=0.15.1
+2024-06-28 22:02:17 — INFO — Running with edr=0.15.1
+2024-06-28 22:02:17 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target dev
+[31;20m2024-06-28 22:02:19 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:02:19 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target dev
+2024-06-28 22:02:20 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'dev']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:02:20 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target dev
+[31;20m2024-06-28 22:02:22 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:02:22 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target dev
+[31;20m2024-06-28 22:02:24 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'dev']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:04:00 — INFO — Running with edr=0.15.1
+2024-06-28 22:04:00 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:02 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:04:02 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:04:03 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:04:03 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:05 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:04:05 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:07 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:04:29 — INFO — Running with edr=0.15.1
+2024-06-28 22:04:30 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:31 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:04:31 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:04:33 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:04:33 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:35 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:04:35 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:04:37 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:08:28 — INFO — Running with edr=0.15.1
+2024-06-28 22:08:28 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:08:30 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:08:30 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:08:32 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:08:32 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:08:34 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:08:34 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:08:36 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:09:48 — INFO — Running with edr=0.15.1
+2024-06-28 22:10:28 — INFO — Running with edr=0.15.1
+2024-06-28 22:10:28 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:10:30 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:10:30 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:10:32 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:10:32 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:10:34 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:10:34 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:10:36 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:11:51 — INFO — Running with edr=0.15.1
+2024-06-28 22:11:51 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:11:53 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:11:53 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:11:55 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:11:55 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:11:56 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:11:56 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:11:58 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:15:53 — INFO — Running with edr=0.15.1
+2024-06-28 22:15:53 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:15:56 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 22:15:56 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:15:57 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:15:57 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:15:59 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 22:15:59 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 22:16:01 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 22:19:51 — INFO — Running with edr=0.14.1
+2024-06-28 22:19:51 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 22:19:51 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:24:26 — INFO — Running with edr=0.14.1
+2024-06-28 22:24:26 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 22:24:26 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:27:02 — INFO — Running with edr=0.14.1
+2024-06-28 22:27:02 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 22:27:02 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 22:29:33 — INFO — Running with edr=0.14.1
+2024-06-28 22:29:33 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 22:29:33 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles
+2024-06-28 22:41:50 — INFO — Running with edr=0.14.1
+2024-06-28 22:41:50 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 22:41:50 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/dbt_new_project/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:14:27 — INFO — Running with edr=0.14.1
+2024-06-28 23:14:28 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 23:14:28 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:14:43 — INFO — Running with edr=0.14.1
+2024-06-28 23:14:43 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 23:14:43 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --target dev
+2024-06-28 23:14:57 — INFO — Running with edr=0.14.1
+2024-06-28 23:14:57 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 23:14:57 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target dev
+2024-06-28 23:29:31 — INFO — Running with edr=0.14.1
+2024-06-28 23:29:31 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:29:33 — ERROR — Unable to get the latest invocation: Failed to run dbt command.[0m
+2024-06-28 23:29:33 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:29:35 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 23:29:35 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:29:37 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 23:29:37 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:29:39 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 39, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 51, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 22, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+2024-06-28 23:31:39 — INFO — Running with edr=0.15.1
+2024-06-28 23:31:39 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 23:31:39 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:45:51 — INFO — Running with edr=0.15.1
+2024-06-28 23:45:51 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 23:45:51 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:45:56 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'deps', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' is 3529
+2024-06-28 23:45:56 — INFO — Running with dbt=1.8.3
+2024-06-28 23:45:56 — INFO — Updating lock file in file path: /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project/package-lock.yml
+2024-06-28 23:45:56 — INFO — Installing dbt-labs/dbt_utils
+2024-06-28 23:45:56 — INFO — Installed from version 0.8.6
+2024-06-28 23:45:56 — INFO — Updated version available: 1.2.0
+2024-06-28 23:45:56 — INFO — Installing elementary-data/elementary
+2024-06-28 23:45:56 — INFO — Installed from version 0.15.1
+2024-06-28 23:45:56 — INFO — Updated version available: 0.15.2
+2024-06-28 23:45:56 — INFO — 
+2024-06-28 23:45:56 — INFO — Updates available for packages: ['dbt-labs/dbt_utils', 'elementary-data/elementary']                 
+Update your versions in packages.yml, then run dbt deps
+2024-06-28 23:45:56 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:45:58 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'[0m
+2024-06-28 23:45:58 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:46:01 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-06-28 23:46:01 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:46:03 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 23:46:03 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+[31;20m2024-06-28 23:46:05 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-06-28 23:46:48 — INFO — Running with edr=0.15.1
+2024-06-28 23:46:48 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+[31;20m2024-06-28 23:46:50 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'elementary'. The valid target names for this profile are:
+   - default[0m
+2024-06-28 23:46:50 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+2024-06-28 23:46:52 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'elementary'. The valid target names for this profile are:
+   - default
+2024-06-28 23:46:52 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+[31;20m2024-06-28 23:46:55 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-06-28 23:46:55 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary
+[31;20m2024-06-28 23:46:57 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'elementary'. The valid target names for this profile are:
+   - default
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 43, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/api/tests/tests.py", line 55, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/fetchers/tests/tests.py", line 25, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+  File "/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  The profile 'elementary' does not have a target named 'elementary'. The valid target names for this profile are:
+   - default
+2024-06-28 23:48:27 — INFO — Running with edr=0.15.1
+2024-06-28 23:48:27 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:48:38 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 4494
+2024-06-28 23:48:38 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:48:42 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1418
+2024-06-28 23:48:42 — INFO — edr (0.15.1) and Elementary's dbt package (0.15.2) are compatible.
+2024-06-28 23:48:42 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:48:46 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1410
+2024-06-28 23:48:46 — INFO — Elementary's database and schema: '"dbt_db.dbt_schema_elementary"'
+2024-06-28 23:48:46 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:48:51 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:48:51 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:48:56 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:48:56 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:01 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2924
+2024-06-28 23:49:01 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:05 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_sources", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:49:05 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:11 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_exposures", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:49:11 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:15 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:49:15 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:20 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 15922
+2024-06-28 23:49:20 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:25 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1544
+2024-06-28 23:49:25 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:31 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1968
+2024-06-28 23:49:31 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:36 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 8414
+2024-06-28 23:49:36 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:49:41 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2226
+2024-06-28 23:54:42 — INFO — Running with edr=0.15.1
+2024-06-28 23:54:42 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:54:48 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 3540
+2024-06-28 23:54:48 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:54:52 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1418
+2024-06-28 23:54:52 — INFO — edr (0.15.1) and Elementary's dbt package (0.15.2) are compatible.
+2024-06-28 23:54:52 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:54:56 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1410
+2024-06-28 23:54:56 — INFO — Elementary's database and schema: '"dbt_db.dbt_schema_elementary"'
+2024-06-28 23:54:56 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:03 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 39796
+2024-06-28 23:55:03 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:08 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:55:08 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:14 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2924
+2024-06-28 23:55:14 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:19 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_sources", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:55:19 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:25 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_exposures", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:55:25 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:31 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1350
+2024-06-28 23:55:31 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:37 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 15922
+2024-06-28 23:55:37 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:43 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1544
+2024-06-28 23:55:43 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:49 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 1968
+2024-06-28 23:55:49 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:55:54 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 8414
+2024-06-28 23:55:54 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir profiles --target elementary_dev
+2024-06-28 23:56:00 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}}', '--project-dir', '/home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project', '--profiles-dir', 'profiles', '--target', 'elementary_dev']' is 2226

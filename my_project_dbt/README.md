@@ -1,20 +1,30 @@
-Welcome to your new dbt project!
+# Projeto de Transformação de Dados com dbt e Snowflake
 
-### Using the starter project
+## Visão Geral
 
-Try running the following commands:
-- dbt run
-- dbt test
+Este projeto utiliza o **dbt (data build tool)** para realizar transformações de dados e o **Elementary Data** para garantir a qualidade dos dados. As transformações são executadas em um banco de dados Snowflake.
 
+## Estrutura do Projeto
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- **dbt**: Usado para transformações de dados.
+- **Snowflake**: Data warehouse em nuvem usado como banco de dados alvo para as transformações.
+- **Elementary Data**: Ferramenta para monitorar e garantir a qualidade dos dados.
 
+## Requisitos
 
-run container postgres:
+- Python 3.8+
+- dbt
+- Conta Snowflake
+- Elementary Data
 
- docker run --name postgres-dbt -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
+## Configuração
+
+### Passo 1: Clonar o Repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
+
+python -m venv venv
+source venv/bin/activate  # No Windows use `venv\Scripts\activate`
+

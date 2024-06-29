@@ -1,0 +1,9 @@
+2024-06-28 22:30:41 — INFO — Running with edr=0.14.1
+2024-06-28 22:30:41 — INFO — edr internal dbt package is not up-to-date, updating it...
+2024-06-28 22:30:41 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project --profiles-dir my_project_dbt/profiles/
+2024-06-28 23:08:18 — INFO — Running with edr=0.14.1
+2024-06-28 23:08:18 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 23:08:18 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/dbt_new_project/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project
+2024-06-28 23:09:32 — INFO — Running with edr=0.14.1
+2024-06-28 23:09:32 — INFO — Installing packages for edr internal dbt package...
+2024-06-28 23:09:32 — INFO — Running dbt --log-format json deps --project-dir /home/junior/projetos/dbt_new_project/venv-dbt/lib/python3.8/site-packages/elementary/monitor/dbt_project

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: feminino
+    columns:
+      - name: id
+        data_type: TEXT
+        data_tests:
+          - unique
+          - not_null
+      - name: name 
+        data_type: TEXT
+        data_tests:
+          - not_null
+      - name: idade 
+        data_type: INTEGER
+        data_tests:
+          - not_null
+      - name: sexo 
+        data_type: TEXT
+        data_tests:
+          - not_null
+    data_tests:
+      - elementary.schema_changes_from_baseline

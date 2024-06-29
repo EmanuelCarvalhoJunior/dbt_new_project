@@ -2,12 +2,33 @@ my_project_dbt:  # Nome do projeto dbt
   target: dev   # Alvo de execução (dev, prod, etc.)
   outputs:
     dev:       # Configuração do alvo 'dev'
-      type: postgres
-      host: 172.17.0.2    # Endereço do host do PostgreSQL
-      user: "{{ env_var('DBT_USER')}}"      # Nome do usuário do PostgreSQL
-      password: "{{ env_var('DBT_PASS') }}"  # Senha do usuário
-      port: 5432         # Porta em que o PostgreSQL está rodando
-      dbname: postgres       # Nome do banco de dados
-      schema: public     # Esquema do banco de dados a ser utilizado
-      threads: 4         # Número de threads a serem usadas pelo dbt
-      keepalives_idle: 0 # Tempo de inatividade para keepalive TCP (em segundos)
+    
+      type: snowflake
+      user:  "{{env_var('DBT_USER')}}"
+      account: "{{env_var('DBT_ACCOUNT')}}"
+      database: dbt_db
+      password: "{{env_var('DBT_PASSWORD')}}"
+      role: dbt_role
+      schema: dbt_schema
+      threads: 5  
+      warehouse: dbt_wh
+      ##client_session_keep_alive: False
+      ##query_tag: [anything]
+
+## POSTGRES ##
+## By default, edr expects the profile name 'elementary'.      ##
+## Configure the database and schema of elementary models.     ##
+## Check where 'elementary_test_results' is to find it.        ##
+
+elementary:
+  outputs:
+    elementary_dev:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER')}}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: dbt_role
+      database: dbt_db
+      warehouse: dbt_wh
+      schema: dbt_schema_elementary
+      threads: 4
