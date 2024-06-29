@@ -10,6 +10,9 @@ Este projeto utiliza o **dbt (data build tool)** para realizar transformações 
 - **Snowflake**: Data warehouse em nuvem usado como banco de dados alvo para as transformações.
 - **Elementary Data**: Ferramenta para monitorar e garantir a qualidade dos dados.
 
+![image](https://github.com/EmanuelCarvalhoJunior/dbt_new_project/assets/91102378/ce77aa33-10d9-4fdb-a828-6343f6eb9c7f)
+
+
 ## Requisitos
 
 - Python 3.8+
@@ -24,3 +27,9 @@ Este projeto utiliza o **dbt (data build tool)** para realizar transformações 
 ```bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
+````
+### Passo 2: Criar um Ambiente Virtual
+```bash
+python -m venv venv
+source venv/bin/activate  # No Windows use `venv\Scripts\activate`
+```
