@@ -25,8 +25,8 @@ Este projeto utiliza o **dbt (data build tool)** para realizar transformações 
 ### Passo 1: Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/EmanuelCarvalhoJunior/dbt_new_project.git
+cd dbt_new_project
 ````
 ### Passo 2: Criar um Ambiente Virtual
 ```bash
