@@ -14,7 +14,7 @@ jobs:
       SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
       SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
       SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_USER: ${{ vars.SNOWFLAKE_USER }}
       SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
 
     steps:
