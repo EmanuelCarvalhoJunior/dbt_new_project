@@ -4,14 +4,14 @@ my_project_dbt:  # Nome do projeto dbt
     dev:       # Configuração do alvo 'dev'
     
       type: snowflake
-      user:  "{{env_var('SNOWFLAKE_USER')}}"
-      account: "{{env_var('SNOWFLAKE_ACCOUNT')}}"
-      database: "{{env_var('SNOWFLAKE_DATABASE')}}"
-      password: "{{env_var('SNOWFLAKE_PASSWORD')}}"
-      role: "{{env_var('SNOWFLAKE_ROLE')}}"
-      schema: "{{env_var('SNOWFLAKE_SCHEMA')}}"
+      user:  "{{ env_var('SNOWFLAKE_USER')}}"
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
       threads: 5  
-      warehouse: "{{env_var('SNOWFLAKE_WH')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       ##client_session_keep_alive: False
       ##query_tag: [anything]
 
