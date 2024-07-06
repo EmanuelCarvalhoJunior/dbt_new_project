@@ -28,7 +28,8 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
+      - name: Read Snowflake User
+        run: echo ${{ vars.SNOWFLAKE_USER }}
       - name: Test DBT compile
         run: |
           dbt debug --target dev --profiles-dir my_project_dbt/profiles --project-dir my_project_dbt
