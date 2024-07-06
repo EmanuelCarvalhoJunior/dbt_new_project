@@ -10,6 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      SNOWFLAKE_ACCOUNT:   ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_DATABASE:  ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_PASSWORD:  ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE:      ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_SCHEMA:    ${{ secrets.SNOWFLAKE_SCHEMA }}
+      SNOWFLAKE_USER:      ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_WH:        ${{ secrets.SNOWFLAKE_WH }}
+
+
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -22,5 +33,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       
-      - name: hello World
-        run: echo 'Hello Wold'
+      - name: Test DBT compile
+        run: |
+          dbt debug --target dev
