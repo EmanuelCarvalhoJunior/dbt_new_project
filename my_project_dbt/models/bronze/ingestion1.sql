@@ -4,7 +4,7 @@ select
 '1' as id,
 'emanuel' as name,
 14 as idade,
-'m' as sexo
+'m' as SEXO
 
 union all
 
