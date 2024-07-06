@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
@@ -26,11 +25,13 @@ jobs:
         with:
           python-version: '3.12'
       
+      - name: Debug Enviroment Variables
+        run: |
+          echo "Account: ${{ secrets.SNOWFLAKE_ACCOUNT }}"
+          echo "Database: ${{ secrets.SNOWFLAKE_DATABASE }}"
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
-      - name: Read Snowflake User
-        run: echo " My user is ${{ vars.SNOWFLAKE_USER }}"
       
       - name: Test DBT compile
         run: |
