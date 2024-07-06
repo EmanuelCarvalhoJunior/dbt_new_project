@@ -28,9 +28,9 @@ jobs:
       
       - name: Debug Enviroment Variables
         run: |
-          echo "Account: ${{ secrets.SNOWFLAKE_ACCOUNT }}"
-          echo "Database: ${{ secrets.SNOWFLAKE_DATABASE }}"
-          echo "User: ${{ secrets.SNOWFLAKE_USER }}"
+          echo "Account: ${{ vars.SNOWFLAKE_ACCOUNT }}"
+          echo "Database: ${{ vars.SNOWFLAKE_DATABASE }}"
+          echo "User: ${{ vars.SNOWFLAKE_USER }}"
       
       - name: Install dependencies
         run: pip install -r requirements.txt
