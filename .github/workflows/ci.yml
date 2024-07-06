@@ -35,4 +35,4 @@ jobs:
       
       - name: Test DBT compile
         run: |
-          dbt debug --target dev --profiles-dir profiles
+          dbt debug --target dev --profiles-dir profiles --project-dir my_project_dbt
