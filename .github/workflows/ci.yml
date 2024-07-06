@@ -32,6 +32,6 @@ jobs:
       - name: Read Snowflake User
         run: echo " My user is ${{ vars.SNOWFLAKE_USER }}"
       
-       name: Test DBT compile
+      - name: Test DBT compile
         run: |
           dbt debug --target dev --profiles-dir my_project_dbt/profiles --project-dir my_project_dbt
