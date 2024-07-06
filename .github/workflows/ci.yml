@@ -5,8 +5,9 @@ on:
     branches:
       - main
 jobs:
-  build:
+  continuos-integration:
     runs-on: ubuntu-latest
+
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
@@ -18,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v3
