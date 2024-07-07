@@ -34,6 +34,10 @@ jobs:
         uses: google-github-actions/auth@v0.4.3
         with:
           credentials_json: ${{ secrets.GCLOUD_SERVICE_KEY }}
+
+      - name: Copy Manifest
+        run: |
+          gsutil cp gs://${{ vars.GCLOUD_STORAGE_PATH_MANIFEST }}/manifest.json ./ || echo "Manifest not found "
            
       
       - name: Debug Enviroment Variables
