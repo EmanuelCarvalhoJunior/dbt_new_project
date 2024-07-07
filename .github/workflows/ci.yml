@@ -18,6 +18,7 @@ jobs:
       SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
       SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
       SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
+      DBT_PROFILES_DIR: ${{}}
 
     steps:
       - name: Checkout repository
@@ -39,4 +40,9 @@ jobs:
       
       - name: Test DBT compile
         run: |
-          dbt debug --target dev --profiles-dir my_project_dbt/profiles --project-dir my_project_dbt
+          dbt debug --target dev 
+      
+      - name: Run Dbt Build 
+        run: |
+          dbt build -s 'state:modified+' --state ./target_prod
+          
