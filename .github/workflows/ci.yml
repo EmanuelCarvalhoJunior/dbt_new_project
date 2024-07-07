@@ -53,5 +53,5 @@ jobs:
       
       - name: Run Dbt Build 
         run: |
-          dbt build -s 'state:+modified+'  --state ./target_prod --target pr --vars "schema_id: $SCHAMA_ID"
+          dbt build -s '+state:modified+'  --state ./target_prod --target pr --vars "schema_id: $SCHAMA_ID"
           
