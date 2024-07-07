@@ -31,7 +31,7 @@ jobs:
           python-version: '3.12'
       
       - name: Authentic Google Cloud
-        users: google-github-actions/auth@v0.4.3
+        uses: google-github-actions/auth@v0.4.3
         with:
           credentials_json: ${{ secrets.GCLOUD_SERVICE_KEY }}
            
