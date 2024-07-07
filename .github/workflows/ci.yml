@@ -42,6 +42,10 @@ jobs:
       - name: Test DBT compile
         run: |
           dbt debug --target dev 
+
+      - name: Deps dbt 
+        run: |
+          dbt deps 
       
       - name: Run Dbt Build 
         run: |
