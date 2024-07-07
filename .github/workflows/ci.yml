@@ -18,8 +18,8 @@ jobs:
       SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
       SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
       SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
-      DBT_PROFILES_DIR: ${{ var.DBT_PROFILES_DIR }}
-      DBT_PROJECT_DIR: ${{ var.DBT_PROJECT_DIR }}
+      DBT_PROFILES_DIR: ${{ env.DBT_PROFILES_DIR }}
+      DBT_PROJECT_DIR: ${{ env.DBT_PROJECT_DIR }}
 
     steps:
       - name: Checkout repository
