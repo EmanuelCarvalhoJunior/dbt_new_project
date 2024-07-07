@@ -49,9 +49,9 @@ jobs:
 
       - name: Deps dbt 
         run: |
-          dbt deps --target pr --vars "schema_id: $SCHAMA_ID"
+          dbt deps --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
       
       - name: Run Dbt Build 
         run: |
-          dbt build -s '+state:modified+'  --state ./target_prod --target pr --vars "schema_id: $SCHAMA_ID"
+          dbt build -s '+state:modified+'  --state ./target_prod --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
           

@@ -20,7 +20,7 @@ my_project_dbt:  # Nome do projeto dbt
       database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
       role: "{{ env_var('SNOWFLAKE_ROLE')}}"
-      schema: pr_{{ var('schema_id')}}
+      schema: pr_{{ var('SCHEMA_ID')}}
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       threads: 5  
 

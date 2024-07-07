@@ -28,10 +28,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 vars:
-   disable_dbt_columns_autoupload: true
-   disable_run_results: true
-   disable_tests_results: true
-   disable_dbt_invocation_autoupload: true
+  disable_dbt_artifacts_autoupload: true
+  disable_dbt_invocation_autoupload: true
+  disable_dbt_columns_autoupload: true
 
 
 flags:
