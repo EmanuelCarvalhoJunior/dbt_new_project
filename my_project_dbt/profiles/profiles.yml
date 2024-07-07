@@ -13,6 +13,16 @@ my_project_dbt:  # Nome do projeto dbt
       threads: 5  
       ##client_session_keep_alive: False
       ##query_tag: [anything]
+    pr:       # Configuração do alvo 'dev'
+      type: snowflake
+      user:  "{{ env_var('SNOWFLAKE_USER')}}"
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      schema: pr_{{ var('schema_id')}}
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      threads: 5  
 
 ## POSTGRES ##
 ## By default, edr expects the profile name 'elementary'.      ##

@@ -39,15 +39,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       
+      - name: Get Schema ID
+        id: schema_id
+        run: echo "SCHEMA_ID=${{ github.event.pull_request.number }}__${{ github.sha}}" >> $GITHUB_ENV
+
       - name: Test DBT compile
         run: |
-          dbt debug --target dev 
+          dbt debug --target pr --vars "schema_id: $SCHAMA_ID"
 
       - name: Deps dbt 
         run: |
-          dbt deps 
+          dbt deps --target pr --vars "schema_id: $SCHAMA_ID"
       
       - name: Run Dbt Build 
         run: |
-          dbt build -s 'state:modified+' --state ./target_prod
+          dbt build -s 'state:modified+' --state ./target_prod --target pr --vars "schema_id: $SCHAMA_ID"
           
