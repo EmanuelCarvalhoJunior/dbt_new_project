@@ -4,23 +4,65 @@ on:
   pull_request:
     branches:
       - main
-
-
 jobs:
-  build:
+  continuos-integration:
     runs-on: ubuntu-latest
+    environment:
+      name: dev
+
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_WH: ${{ secrets.SNOWFLAKE_WH }}
+      DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+      DBT_PROJECT_DIR: ${{ vars.DBT_PROJECT_DIR }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: '3.12'
       
+      - name: Authentic Google Cloud
+        uses: google-github-actions/auth@v0.4.3
+        with:
+          credentials_json: ${{ secrets.GCLOUD_SERVICE_KEY }}
+
+      - name: Copy Manifest
+        run: |
+          gsutil cp gs://${{ vars.GCLOUD_STORAGE_PATH_MANIFEST }}/manifest.json ./ || echo "Manifest not found "
+           
+      
+      - name: Debug Enviroment Variables
+        run: |
+          echo "Account: ${{ secrets.SNOWFLAKE_ACCOUNT }}"
+          echo "Database: ${{ secrets.SNOWFLAKE_DATABASE }}"
+          echo "User: ${{ vars.SNOWFLAKE_USER }}"
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
       
-      - name: hello World
-        run: echo 'Hello Wold'
+      - name: Get Schema ID
+        id: schema_id
+        run: echo "SCHEMA_ID=${{ github.event.pull_request.number }}__${{ github.sha}}" >> $GITHUB_ENV
+
+      - name: Debug DBT compile
+        run: |
+          dbt debug --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+
+      - name: Deps dbt 
+        run: |
+          dbt deps --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+      
+      - name: Run Dbt Build 
+        run: |
+          dbt run -s elementary --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+          dbt build -s '+state:modified+' --defer  --state ./target_prod --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+          

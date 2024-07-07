@@ -2,18 +2,27 @@ my_project_dbt:  # Nome do projeto dbt
   target: dev   # Alvo de execução (dev, prod, etc.)
   outputs:
     dev:       # Configuração do alvo 'dev'
-    
       type: snowflake
-      user:  "{{env_var('DBT_USER')}}"
-      account: "{{env_var('DBT_ACCOUNT')}}"
-      database: dbt_db
-      password: "{{env_var('DBT_PASSWORD')}}"
-      role: dbt_role
-      schema: dbt_schema
+      user:  "{{ env_var('SNOWFLAKE_USER')}}"
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       threads: 5  
-      warehouse: dbt_wh
       ##client_session_keep_alive: False
       ##query_tag: [anything]
+    pr:       # Configuração do alvo 'dev'
+      type: snowflake
+      user:  "{{ env_var('SNOWFLAKE_USER')}}"
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      schema: pr_{{ var('SCHEMA_ID')}}
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      threads: 5  
 
 ## POSTGRES ##
 ## By default, edr expects the profile name 'elementary'.      ##
@@ -21,14 +30,26 @@ my_project_dbt:  # Nome do projeto dbt
 ## Check where 'elementary_test_results' is to find it.        ##
 
 elementary:
+  enable: false
   outputs:
     elementary_dev:
       type: snowflake
       account: "{{ env_var('DBT_ACCOUNT') }}"
       user: "{{ env_var('DBT_USER')}}"
       password: "{{ env_var('DBT_PASSWORD') }}"
-      role: dbt_role
-      database: dbt_db
-      warehouse: dbt_wh
-      schema: dbt_schema_elementary
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
+      threads: 4
+    
+    elementary_pr:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER')}}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      schema: pr_{{ var('SCHEMA_ID')}}
       threads: 4
