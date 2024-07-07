@@ -30,6 +30,7 @@ my_project_dbt:  # Nome do projeto dbt
 ## Check where 'elementary_test_results' is to find it.        ##
 
 elementary:
+  enable: false
   outputs:
     elementary_dev:
       type: snowflake
@@ -40,4 +41,15 @@ elementary:
       database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
+      threads: 4
+    
+    elementary_pr:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER')}}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      schema: pr_{{ var('SCHEMA_ID')}}
       threads: 4
