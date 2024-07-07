@@ -2,7 +2,6 @@ my_project_dbt:  # Nome do projeto dbt
   target: dev   # Alvo de execução (dev, prod, etc.)
   outputs:
     dev:       # Configuração do alvo 'dev'
-    
       type: snowflake
       user:  "{{ env_var('SNOWFLAKE_USER')}}"
       account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
@@ -10,8 +9,8 @@ my_project_dbt:  # Nome do projeto dbt
       password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
       role: "{{ env_var('SNOWFLAKE_ROLE')}}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
-      threads: 5  
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      threads: 5  
       ##client_session_keep_alive: False
       ##query_tag: [anything]
 
@@ -27,8 +26,8 @@ elementary:
       account: "{{ env_var('DBT_ACCOUNT') }}"
       user: "{{ env_var('DBT_USER')}}"
       password: "{{ env_var('DBT_PASSWORD') }}"
-      role: dbt_role
-      database: dbt_db
-      warehouse: dbt_wh
-      schema: dbt_schema_elementary
+      role: "{{ env_var('SNOWFLAKE_ROLE')}}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
+      warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA')}}"
       threads: 4
