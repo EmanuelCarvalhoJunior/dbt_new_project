@@ -59,7 +59,7 @@ jobs:
       - name: Run dbt Build
         run: |
           if [ -f "./manifest.json"]; then
-            dbt build -s 'state:modified+' --state ./ --target prod
+            dbt build -s 'state:modified+' --state ./ --target prod --exclude elementery.*
           else
             dbt build --target prod
           fi

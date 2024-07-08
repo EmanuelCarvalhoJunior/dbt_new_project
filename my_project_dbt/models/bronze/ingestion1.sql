@@ -14,6 +14,15 @@ select
 10 as idade,
 'f' as sexo
 
+union all
+
+select 
+'3' as id,
+'mariana' as name,
+5 as idade,
+'f' as sexo
+
+
 
 
 
