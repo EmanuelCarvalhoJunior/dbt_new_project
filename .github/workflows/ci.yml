@@ -11,6 +11,7 @@ jobs:
       name: dev
 
     env:
+      GOOGLE_PROJECT_ID: $ {{ secrets.GOOGLE_PROJECT_ID }}
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
       SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
@@ -30,10 +31,15 @@ jobs:
         with:
           python-version: '3.12'
       
-      - name: Authentic Google Cloud
+      - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v0.4.3
         with:
           credentials_json: ${{ secrets.GCLOUD_SERVICE_KEY }}
+
+      - name: Set up Google Cloud SDk
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
 
       - name: Copy Manifest
         run: |
@@ -55,14 +61,18 @@ jobs:
 
       - name: Debug DBT compile
         run: |
-          dbt debug --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+          dbt debug --target pr --vars "schema_id: $SCHEMA_ID"
 
       - name: Deps dbt 
         run: |
-          dbt deps --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
+          dbt deps --target pr --vars "schema_id: $SCHEMA_ID"
       
       - name: Run Dbt Build 
         run: |
-          dbt run -s elementary --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
-          dbt build -s '+state:modified+' --defer  --state ./target_prod --target pr --vars "SCHEMA_ID: $SCHAMA_ID"
-          
+          if [ -f "./manisfest.json"]; then
+            dbt run -s elementary --target pr --vars "schema_id: $SCHEMA_ID"
+            dbt build -s '+state:modified+' --defer  --state ./target_prod --target pr --vars "schema_id: $SCHEMA_ID"
+          else
+            dbt run -s elementary --target pr --vars "schema_id: $SCHEMA_ID"
+            dbt build --target pr --vars "schema_id: $SCHEMA_ID"
+          fi

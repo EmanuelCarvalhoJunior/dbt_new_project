@@ -20,7 +20,7 @@ my_project_dbt:  # Nome do projeto dbt
       database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD')}}"
       role: "{{ env_var('SNOWFLAKE_ROLE')}}"
-      schema: pr_{{ var('SCHEMA_ID')}}
+      schema: pr_{{ var('schema_id')}}
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       threads: 5  
 
@@ -51,5 +51,5 @@ elementary:
       role: "{{ env_var('SNOWFLAKE_ROLE')}}"
       database: "{{ env_var('SNOWFLAKE_DATABASE')}}"
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
-      schema: pr_{{ var('SCHEMA_ID')}}
+      schema: pr_{{ var('schema_id')}}
       threads: 4
