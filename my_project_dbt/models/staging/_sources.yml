@@ -2,6 +2,6 @@
 sources:
   - name: raw
     database: SNOWFLAKE_SAMPLE_DATA
-    schema: TPCG_SF1
+    schema: TPCH_SF1
     tables:
       - name: customer
