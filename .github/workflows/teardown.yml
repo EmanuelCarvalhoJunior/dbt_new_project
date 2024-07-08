@@ -35,8 +35,7 @@ jobs:
       - name: Get PR NUM
         id: schema_id
         run: |
-          echo "PR_NUM=${{ github.event.number }}" >> $GITHUB_ENV    
-          echo $PR_NUM
+          echo "PR_NUM=PR_${{ github.event.number }}__" >> $GITHUB_ENV    
 
       - name: Install dependencies
         run: pip install -r requirements.txt
