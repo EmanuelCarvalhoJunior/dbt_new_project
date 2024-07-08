@@ -1,3 +1,10 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "sqlfluff.linter.executablePath": "path/to/sqlfluff",
+    "sqlfluff.formatter.arguments": [
+        "fix",
+        "--dialect",
+        "snowflake"
+    ],
+    "editor.formatOnSave": true
 }
