@@ -1,13 +1,9 @@
 name: CI schema teardown on PR closed
 
-# on:
-#   pull_request:
-#     types:
-#       - closed
 on:
-  push:
-    branches:
-      - dev
+  pull_request:
+    types:
+      - closed
 
 
 jobs:
