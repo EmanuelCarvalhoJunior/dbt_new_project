@@ -74,5 +74,5 @@ jobs:
             dbt build -s '+state:modified+' --defer  --state ./target_prod --target pr --vars "schema_id: $SCHEMA_ID"
           else
             dbt run -s elementary --target pr --vars "schema_id: $SCHEMA_ID"
-            dbt build --target pr --vars "schema_id: $SCHEMA_ID"
+            dbt build --target pr --vars "schema_id: $SCHEMA_ID" --exclude elementary.*
           fi

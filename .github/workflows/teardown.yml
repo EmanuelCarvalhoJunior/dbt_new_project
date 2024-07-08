@@ -5,10 +5,13 @@ on:
     types:
       - closed
 
+
 jobs:
   CI_TEARDOWN_JOB:
     runs-on: ubuntu-latest
-    
+    environment:
+      name: dev
+
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
@@ -31,11 +34,16 @@ jobs:
       
       - name: Get PR NUM
         id: schema_id
-        run: echo "PR_NUM=${{ github.event.number }}" >> $GITHUB_ENV    
-        
+        run: |
+          echo "PR_NUM=${{ github.event.number }}" >> $GITHUB_ENV    
+          echo $PR_NUM
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+     
       - name: dbt deps
         run: dbt deps
       
       - name: Drop PR schemas
         run: |
-          dbt run-operation drop_pr_schemas --args "{'PR_number':'${PR_NUM}'}"
+          dbt run-operation drop_pr_schemas --args "{'PR_number':'${PR_NUM}'}" --vars "schema_id:${PR_NUM}" --target pr
