@@ -3,7 +3,7 @@ name: CD_Action
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   CD_JOB:
