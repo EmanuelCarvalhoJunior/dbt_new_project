@@ -1,6 +1,6 @@
 {%- macro drop_pr_schemas(PR_number) %}
 
-    {% do log('valor do parametro: ' ~  (PR_number | default('None')) ,True) %}
+    {% do log('Number PR: ' ~  PR_number  ,True) %}
 
     {% set number_stg = PR_number|string %}
     {% set command_list = [] %}
