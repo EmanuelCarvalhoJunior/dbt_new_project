@@ -8,7 +8,7 @@ on:
 jobs:
   CI_TEARDOWN_JOB:
     runs-on: ubuntu-latest
-    
+
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
@@ -32,7 +32,10 @@ jobs:
       - name: Get PR NUM
         id: schema_id
         run: echo "PR_NUM=${{ github.event.number }}" >> $GITHUB_ENV    
-        
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+     
       - name: dbt deps
         run: dbt deps
       
