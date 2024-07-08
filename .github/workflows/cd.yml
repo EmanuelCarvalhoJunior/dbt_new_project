@@ -69,4 +69,4 @@ jobs:
 
       - name: Copy new manifest to Google Cloud Storage
         run:
-          gsutil cp ./my_project_dbt/target/manifest.josn gs://${{ vars.GCLOUD_STORAGE_PATH_MANIFEST }}/
+          gsutil cp ./my_project_dbt/target/manifest.josn gs://${{ varsGCLOUD_STORAGE_PATH_MANIFEST }}/
