@@ -24,7 +24,7 @@ my_project_dbt:  # Nome do projeto dbt
       warehouse: "{{ env_var('SNOWFLAKE_WH')}}"
       threads: 5  
     
-    pr:       # Configuração do alvo 'dev'
+    prod:       # Configuração do alvo 'dev'
       type: snowflake
       user:  "{{ env_var('SNOWFLAKE_USER')}}"
       account: "{{ env_var('SNOWFLAKE_ACCOUNT')}}"
