@@ -48,4 +48,4 @@ jobs:
       
       - name: Drop PR schemas
         run: |
-          dbt run-operation drop_pr_schemas --args "{'PR_number':'${PR_NUM}'}"
+          dbt run-operation drop_pr_schemas --args "{'PR_number':'${PR_NUM}'}" --target PR
