@@ -1,5 +1,5 @@
 SELECT
-L.L_ORDERKEY,
-L.L_PARTKEY,
+    L.L_ORDERKEY,
+    L.L_PARTKEY,
 
-from {{ source('raw','lineitem')}} AS L
+FROM {{ source('raw','lineitem') }} AS L
