@@ -2,5 +2,7 @@ my_project_dbt/target/
 my_project_dbt/dbt_packages/
 my_project_dbt/logs/
 my_project_dbt/run.sh
+my_project_dbt/profiles/.user.yml
 execute.sh
 logs
+.vscode
