@@ -1,4 +1,4 @@
-Name: CI_Check_Sql
+name: CI_Check_Sql
 
 on:
   push:
