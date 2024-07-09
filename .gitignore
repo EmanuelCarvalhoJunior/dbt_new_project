@@ -5,3 +5,4 @@ my_project_dbt/run.sh
 my_project_dbt/profiles/.user.yml
 execute.sh
 logs
+.vscode

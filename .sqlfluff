@@ -1,0 +1,26 @@
+[sqlfluff]
+dialect = snowflake
+templater = jinja
+exclude_rules = AL06, AL07, AM01, AM02, AM03, AM04, AM07, CV01,
+                CV02, CV03, CV04, CV05, CV06, CV07, CV08, CV09, CV10, CV11,
+                LT03, LT05, LT07, LT08, LT12, LT13, RF01, RF02, RF03, RF04,
+                RF05, RF06, ST01, ST02, ST03, ST06, ST07, ST08, TQ01 
+large_file_skip_byte_limit = 0 
+max_line_length = 0  
+
+
+[sqlfluff:layout:type:alias_expression]
+spacing_before = align
+align_within = select_clause
+spacing_after = touch
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+
+
+[sqlfluff:rules:aliasing.column]
+aliasing.column = explicit
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = upper
+unquoted_identifiers_policy = all
