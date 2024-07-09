@@ -27,10 +27,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
+vars:
+  mute_ensure_materialization_override: True
 
 flags:
- require_explicit_package_overrides_for_builtin_materializations: false
-
+  require_explicit_package_overrides_for_builtin_materializations: True
+  require_model_names_without_spaces: False
+  source_freshness_run_project_hooks: False
 
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
@@ -38,8 +41,9 @@ flags:
 models:
   my_project_dbt:
     # Config indicated by + and applies to all files under models/example/
-    bronze:
-      +materialized: table
+    staging:
+      +materialized: view
   
   elementary:
     +schema: "elementary"
+  

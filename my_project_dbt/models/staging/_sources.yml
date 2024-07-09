@@ -5,3 +5,14 @@ sources:
     schema: TPCH_SF1
     tables:
       - name: customer
+        columns:
+          - name: C_CUSTKEY
+            data_tests:
+              - not_null
+              - unique
+      - name: orders
+      - name: lineitem
+        columns:
+          - name: L_PARTKEY
+            data_tests:
+              - not_null 

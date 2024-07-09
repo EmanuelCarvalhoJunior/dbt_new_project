@@ -1,0 +1,6 @@
+SELECT
+    O_ORDERKEY    AS KEYBUSSINESS,
+    O_ORDERSTATUS AS ORDERSTATUS,
+
+
+FROM {{ source('raw','orders') }}
