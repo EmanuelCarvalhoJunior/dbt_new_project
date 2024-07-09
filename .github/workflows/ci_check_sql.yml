@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  CI-Check-Sql
+  ci-check-sql-formatting:
   runs-on: ubuntu-latest
   environment:
     name: dev
