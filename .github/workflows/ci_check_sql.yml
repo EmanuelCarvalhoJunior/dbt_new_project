@@ -7,7 +7,7 @@ on:
 
 jobs:
   CI-Check-Sql
-  runs-on: ubuntu=latest
+  runs-on: ubuntu-latest
   environment:
     name: dev
 
