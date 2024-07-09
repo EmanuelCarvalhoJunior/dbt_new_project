@@ -7,9 +7,9 @@ on:
 
 jobs:
   ci-check-sql-formatting:
-  runs-on: ubuntu-latest
-  environment:
-    name: dev
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
 
 
   steps:
